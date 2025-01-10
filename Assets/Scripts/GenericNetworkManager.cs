@@ -8,7 +8,6 @@ public class GenericNetworkManager : MonoBehaviour
 {
     public static GenericNetworkManager Instance;
 
-    [HideInInspector] public string azureAnchorId = "";
     [HideInInspector] public PhotonView localUser;
     private bool isConnected;
 

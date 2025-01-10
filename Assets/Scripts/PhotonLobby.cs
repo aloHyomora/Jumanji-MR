@@ -39,9 +39,27 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             PhotonNetwork.AuthValues.UserId = randomUserId.ToString();
             userIdCount++;
             PhotonNetwork.NickName = PhotonNetwork.AuthValues.UserId;
-            PhotonNetwork.JoinRandomRoom();
+            
+            // 먼저 로비에 입장
+            TypedLobby conferenceLobby = new TypedLobby("Conference", LobbyType.Default);
+            PhotonNetwork.JoinLobby(conferenceLobby);   
         }
-
+        public override void OnJoinedLobby()
+        {            
+            Debug.Log("로비 입장 완료");
+            
+            // 마스터 클라이언트만 방을 생성하도록 함
+            if (PhotonNetwork.IsMasterClient)
+            {
+                var roomOptions = new RoomOptions {IsVisible = true, IsOpen = true, MaxPlayers = 4};
+                PhotonNetwork.CreateRoom("DefaultRoom", roomOptions);
+            }
+            else
+            {
+                // 마스터가 아닌 클라이언트는 방 입장만 시도
+                PhotonNetwork.JoinRoom("DefaultRoom");
+            }
+        }
         public override void OnJoinedRoom()
         {
             base.OnJoinedRoom();
@@ -83,7 +101,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
         private void CreateRoom()
         {
-            var roomOptions = new RoomOptions {IsVisible = true, IsOpen = true, MaxPlayers = 10};
-            PhotonNetwork.CreateRoom("Room" + Random.Range(1, 3000), roomOptions);
+            var roomOptions = new RoomOptions {IsVisible = true, IsOpen = true, MaxPlayers = 4};
+            PhotonNetwork.CreateRoom("DefaultRoom", roomOptions);
         }
     }
