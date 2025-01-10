@@ -57,7 +57,8 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator SceneManageRoutine(int i)
     {
-        yield return new WaitForSeconds(8f);
+        Debug.Log($"SceneManager.LoadScene({i})");
+        yield return new WaitForSeconds(4f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(i);
 
         yield return new WaitForSeconds(15f);
@@ -72,8 +73,12 @@ public class SceneManager : MonoBehaviour
 
     private void SetPlayerPosition()
     {
-        Transform spawnTransform = GameObject.FindWithTag("SpawnPos").transform;
-        cameraTransform.position = spawnTransform.position;
-        cameraTransform.rotation = spawnTransform.rotation;
+        if (GameObject.FindWithTag("SpawnPos") != null)
+        {
+            Transform spawnTransform = GameObject.FindWithTag("SpawnPos").transform;
+            cameraTransform.position = spawnTransform.position;
+            cameraTransform.rotation = spawnTransform.rotation;
+        }
+    
     }
 }
