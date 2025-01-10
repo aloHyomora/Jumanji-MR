@@ -51,7 +51,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         {            
             Debug.Log("로비 입장 완료");
             
-            // 마스터 클라이언트만 방을 생성하도록 함
+            PhotonNetwork.JoinOrCreateRoom("DefaultRoom", new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
+            /*// 마스터 클라이언트만 방을 생성하도록 함
             if (PhotonNetwork.IsMasterClient)
             {                
                 var roomOptions = new RoomOptions {IsVisible = true, IsOpen = true, MaxPlayers = 4};
@@ -63,7 +64,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
                 // 마스터가 아닌 클라이언트는 방 입장만 시도
                 PhotonNetwork.JoinRoom("DefaultRoom");
                 Debug.Log("Default Room 입장");
-            }
+            }*/
         }
         public override void OnJoinedRoom()
         {
