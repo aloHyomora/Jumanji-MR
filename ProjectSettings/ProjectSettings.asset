@@ -143,6 +143,8 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: 11400000, guid: 29162c4352f12af44b3a88f433f513c0, type: 2}
+  - {fileID: 2760216201672278046, guid: 5ca54354a54d62e4fa31af99562d4b1c, type: 2}
+  - {fileID: 11400000, guid: a9b23376279fc7b42b997bf5bc81e104, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -162,7 +164,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.JumanjiMR
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -950,7 +953,7 @@ PlayerSettings:
   embeddedLinuxEnableGamepadInput: 1
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
-  apiCompatibilityLevel: 6
+  apiCompatibilityLevel: 3
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
   cloudProjectId: bbf8d5e8-75f9-49ba-97ba-b3d3dc682d88
