@@ -8,6 +8,13 @@ using UnityEngine;
 
 public class PhotonEventHandler : MonoBehaviourPunCallbacks
 {
+    public static PhotonEventHandler Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
+
     public const byte SendJumanjiInfoEvent = 2; // Jumanji 정보 전송 이벤트 코드
 
     private void OnEnable()
