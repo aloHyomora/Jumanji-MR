@@ -5,7 +5,7 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     private Coroutine _loadingRoutine;
-
+    public Transform cameraTransform;
     void Start()
     {
         if (_loadingRoutine == null)
@@ -20,6 +20,6 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 
         yield return new WaitForSeconds(10f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        // UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 }

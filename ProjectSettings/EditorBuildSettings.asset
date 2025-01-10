@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Build Map/AlaskaQuest.unity
+    guid: 14a188de3979cca438a457388cda86f8
+  - enabled: 1
     path: Assets/Scenes/SecondScene.unity
     guid: e576bcfd2646cfd4991a142ab0018c74
   - enabled: 1
