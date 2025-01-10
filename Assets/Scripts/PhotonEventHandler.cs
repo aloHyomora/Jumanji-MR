@@ -5,14 +5,22 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhotonEventHandler : MonoBehaviourPunCallbacks
 {
     public static PhotonEventHandler Instance;
+    private SceneManager sceneManager;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
+
+    }
+
+    private void Start()
+    {
+         sceneManager = GameObject.Find("SceneManagement").GetComponent<SceneManager>();
     }
 
     public const byte SendJumanjiInfoEvent = 2; // Jumanji 정보 전송 이벤트 코드
@@ -52,8 +60,11 @@ public class PhotonEventHandler : MonoBehaviourPunCallbacks
                 // 데이터 처리
                 JumanjiInfo receivedInfo = (JumanjiInfo)data[0];
                 Debug.Log($"Message \'Move to {receivedInfo.newPositionIndex}\' From {receivedInfo.userName} ");
-                
+
                 // TODO: 아두이노가 보낸 데이터를 포톤 네트워크를 통해 보내서 받음
+
+                sceneManager.SceneIndexSetting(Int32.Parse(receivedInfo.newPositionIndex));
+
                 // TODO: 실제로 움직이는 로직 처리
             }
             catch (Exception ex)
