@@ -53,7 +53,6 @@ public class PhotonEventHandler : MonoBehaviourPunCallbacks
             {
                 Debug.Log($"Error handling photon event: {ex.Message}", this);
             }
-            
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
@@ -12,17 +13,24 @@ public class SceneManager : MonoBehaviour
         {
             _loadingRoutine = StartCoroutine(TestSceneManageRoutine());
         }
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneManagerOnsceneLoaded;
+    }
+
+    private void SceneManagerOnsceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        SetPlayerPosition();
     }
 
     IEnumerator TestSceneManageRoutine()
     {
         yield return new WaitForSeconds(10f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
-        SetPlayerPosition();
 
         yield return new WaitForSeconds(10f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(2);
-        SetPlayerPosition();
+        
+        yield return new WaitForSeconds(10f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(3);
     }
 
     private void SetPlayerPosition()
