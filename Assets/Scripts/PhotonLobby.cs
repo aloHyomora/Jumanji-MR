@@ -43,6 +43,9 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             // 먼저 로비에 입장
             TypedLobby conferenceLobby = new TypedLobby("Conference", LobbyType.Default);
             PhotonNetwork.JoinLobby(conferenceLobby);   
+            
+            Debug.Log($"마스터 서버 {conferenceLobby.Name} 연결 완료, 로비 입장 시도");            
+
         }
         public override void OnJoinedLobby()
         {            
@@ -50,14 +53,16 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             
             // 마스터 클라이언트만 방을 생성하도록 함
             if (PhotonNetwork.IsMasterClient)
-            {
+            {                
                 var roomOptions = new RoomOptions {IsVisible = true, IsOpen = true, MaxPlayers = 4};
                 PhotonNetwork.CreateRoom("DefaultRoom", roomOptions);
+                Debug.Log("Default Room 생성 완료");
             }
             else
             {
                 // 마스터가 아닌 클라이언트는 방 입장만 시도
                 PhotonNetwork.JoinRoom("DefaultRoom");
+                Debug.Log("Default Room 입장");
             }
         }
         public override void OnJoinedRoom()
@@ -72,6 +77,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
+            Debug.Log("Default Room Join Failed, Create room");
             CreateRoom();
         }
 
