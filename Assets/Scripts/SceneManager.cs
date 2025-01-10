@@ -18,8 +18,16 @@ public class SceneManager : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        SetPlayerPosition();
 
         yield return new WaitForSeconds(10f);
-        // UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        SetPlayerPosition();
+    }
+
+    private void SetPlayerPosition()
+    {
+        Transform spawnTransform = GameObject.FindWithTag("SpawnPos").transform;
+        cameraTransform.position = spawnTransform.position;
     }
 }
