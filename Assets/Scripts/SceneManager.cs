@@ -37,5 +37,6 @@ public class SceneManager : MonoBehaviour
     {
         Transform spawnTransform = GameObject.FindWithTag("SpawnPos").transform;
         cameraTransform.position = spawnTransform.position;
+        cameraTransform.rotation = spawnTransform.rotation;
     }
 }
