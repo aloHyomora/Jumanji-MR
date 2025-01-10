@@ -56,6 +56,12 @@ public class PhotonEventHandler : MonoBehaviourPunCallbacks
         }
     }
 
+    [ContextMenu("Send Juman Info")]
+    public void TestSendJumanjiInfo()
+    {
+        SendJumanjiInfo(3);
+    }
+    
     public void SendJumanjiInfo(int newPositionIndex)
     {
         int actorNum = PhotonUserUtility.GetOtherPlayerCode();
