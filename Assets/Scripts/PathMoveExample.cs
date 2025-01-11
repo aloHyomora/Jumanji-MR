@@ -31,7 +31,47 @@ public class PathMoveExample : MonoBehaviour
         mySequence = DOTween.Sequence();
     }
 
+    [ContextMenu("index 2")]
+    public void Index2test()
+    {
+        pathMoveDotween(2);
+    }
 
+    [ContextMenu("index 3")]
+    public void Index3test()
+    {
+        pathMoveDotween(3);
+    }
+
+    [ContextMenu("index 4")]
+    public void Index4test()
+    {
+        pathMoveDotween(4);
+    }
+
+    [ContextMenu("index 5")]
+    public void Index5test()
+    {
+        pathMoveDotween(5);
+    }
+
+    [ContextMenu("index 6")]
+    public void Index6test()
+    {
+        pathMoveDotween(6);
+    }
+
+    [ContextMenu("index 7")]
+    public void Index7test()
+    {
+        pathMoveDotween(7);
+    }
+
+    [ContextMenu("index 8")]
+    public void Index8test()
+    {
+        pathMoveDotween(8);
+    }
 
 
 
@@ -51,21 +91,18 @@ public class PathMoveExample : MonoBehaviour
                  .SetOptions(false)
                  .SetLookAt(0.01f);
 
-        // 이미 생성해 둔 Sequence에 Callback을 추가
-        mySequence.AppendCallback(() =>
+        Debug.Log("vfxs[endIndex - 2]");
+        DOVirtual.DelayedCall(3f, () =>
         {
-            // endIndex-2 : vfxs 배열에서 인덱스 조정 (사용자 로직에 맞게 조정)
-            //vfxs[endIndex - 2].SetActive(true);
-            vfxs[endIndex - 2].GetComponent<ParticleSystem>().Play();
-
-            // 1초 후에 다시 끄기
-            DOVirtual.DelayedCall(1f, () =>
-            {
-                vfxs[endIndex - 2].GetComponent<ParticleSystem>().Stop();
-            });
+            vfxs[endIndex - 2].SetActive(true);
+            
         });
-
-        // 다음 경로 계산을 위해 startIndex 갱신
+        DOVirtual.DelayedCall(8f, () =>
+        {
+            vfxs[endIndex - 2].SetActive(false);
+           
+        });
+       
         startIndex = endIndex;
     }
 
