@@ -20,6 +20,12 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.sceneLoaded += SceneManagerOnsceneLoaded;
     }
 
+
+    [ContextMenu("index 5")]
+    public void Index3test()
+    {
+        SceneIndexSetting(5);
+    }
     private void SceneManagerOnsceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         SetPlayerPosition();
@@ -55,7 +61,7 @@ public class SceneManager : MonoBehaviour
                 break;
             case 5:
                 airplane.pathMoveDotween(5);
-                SceneForIsland();
+                _loadingRoutine = StartCoroutine(SceneForIsland(3));
                 break;
             case 6:
                 airplane.pathMoveDotween(6);
@@ -89,9 +95,11 @@ public class SceneManager : MonoBehaviour
 
     }
 
-    private void SceneForIsland()
+    IEnumerator SceneForIsland(int i)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(3);
+        yield return new WaitForSeconds(10f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(i);
+
         gameBoard.SetActive(false);
     }
 

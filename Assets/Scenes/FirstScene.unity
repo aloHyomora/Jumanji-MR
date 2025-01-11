@@ -3407,7 +3407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32e6ae7f7ffd61458a040dfa453620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   soundManager: {fileID: 862190139}
+=======
+  soundManager: {fileID: 1130816205}
+>>>>>>> Stashed changes
   points:
   - {fileID: 1543656778}
   - {fileID: 1666966693}
@@ -3421,9 +3425,9 @@ MonoBehaviour:
   - {fileID: 215902951}
   - {fileID: 310070018}
   - {fileID: 365192893}
-  - {fileID: 517534204}
-  - {fileID: 570833715}
   - {fileID: 338554266}
+  - {fileID: 570833715}
+  - {fileID: 517534204}
   - {fileID: 88552611}
   startIndex: 1
   endIndex: 1
@@ -15245,6 +15249,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1734300644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130816205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8810504588535514929, guid: 430e77ec7b178104586c988e7e61926f, type: 3}
+  m_PrefabInstance: {fileID: 862190138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c70e8f5b31013040920f3d516cc223c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1131826694
 GameObject:
   m_ObjectHideFlags: 0
@@ -21582,7 +21597,7 @@ GameObject:
   - component: {fileID: 1653873055}
   - component: {fileID: 1653873054}
   m_Layer: 0
-  m_Name: index5 (1)
+  m_Name: index7 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23749,7 +23764,7 @@ GameObject:
   - component: {fileID: 1850309111}
   - component: {fileID: 1850309110}
   m_Layer: 0
-  m_Name: index7 (1)
+  m_Name: index5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
