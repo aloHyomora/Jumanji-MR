@@ -1,6 +1,8 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using Oculus.Interaction.Input;
+using Random = UnityEngine.Random;
 
 public class HandHeartDetector : MonoBehaviour
 {
@@ -10,6 +12,13 @@ public class HandHeartDetector : MonoBehaviour
     private int handHeartGestureCount = 0; // 손하트 제스처 호출 카운트
     private const int Threshold = 20; // 특정 동작을 실행하기 위한 호출 횟수 기준
     private Ease[] easeOptions = { Ease.InCubic, Ease.InQuad, Ease.InExpo }; // 랜덤 선택할 Ease 배열
+
+    private void Awake()
+    {
+        leftHandSkeleton = GameObject.Find("[BuildingBlock] Hand Tracking left").GetComponent<OVRSkeleton>();
+        rightHandSkeleton = GameObject.Find("[BuildingBlock] Hand Tracking right").GetComponent<OVRSkeleton>();
+        mainCamera = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
+    }
 
     void Update()
     {
