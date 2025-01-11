@@ -3408,7 +3408,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   soundManager: {fileID: 862190139}
+=======
+  soundManager: {fileID: 1130816205}
+>>>>>>> Stashed changes
 =======
   soundManager: {fileID: 1130816205}
 >>>>>>> Stashed changes
