@@ -37,6 +37,49 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(3);
     }*/
 
+    [ContextMenu("index 2")]
+    public void Index2test()
+    {
+        SceneIndexSetting(2);
+    }
+
+    [ContextMenu("index 3")]
+    public void Index3test()
+    {
+        SceneIndexSetting(3);
+    }
+
+    [ContextMenu("index 4")]
+    public void Index4test()
+    {
+        SceneIndexSetting(4);
+    }
+
+    [ContextMenu("index 5")]
+    public void Index5test()
+    {
+        SceneIndexSetting(5);
+    }
+
+    [ContextMenu("index 6")]
+    public void Index6test()
+    {
+        SceneIndexSetting(6);
+    }
+
+    [ContextMenu("index 7")]
+    public void Index7test()
+    {
+        SceneIndexSetting(7);
+    }
+
+    [ContextMenu("index 8")]
+    public void Index8test()
+    {
+        SceneIndexSetting(8);
+    }
+
+
     public void SceneIndexSetting(int index)
     {
         switch (index)
@@ -50,7 +93,7 @@ public class SceneManager : MonoBehaviour
                 break;
             case 4:
                 airplane.pathMoveDotween(4);
-                _loadingRoutine = StartCoroutine(SceneManageRoutine(2));
+                //_loadingRoutine = StartCoroutine(SceneManageRoutine(2));
                 break;
             case 5:
                 airplane.pathMoveDotween(5);
@@ -65,6 +108,7 @@ public class SceneManager : MonoBehaviour
                 break;
             case 8:
                 airplane.pathMoveDotween(8);
+                _loadingRoutine = StartCoroutine(SceneManageRoutine(5));
                 break;
             default:
                 break;
@@ -76,13 +120,13 @@ public class SceneManager : MonoBehaviour
         Debug.Log($"SceneManager.LoadScene({i})");
 
         //airplane.pathMoveDotween(i);
-        //VFX 일으키기
+     
         yield return new WaitForSeconds(4f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(i);
 
         gameBoard.SetActive(false);
         yield return new WaitForSeconds(15f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(5);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(6);
         gameBoard.SetActive(true);
 
     }
