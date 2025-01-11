@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using Oculus.Interaction.Input;
 
@@ -5,7 +6,10 @@ public class HandHeartDetector : MonoBehaviour
 {
     public OVRSkeleton leftHandSkeleton;
     public OVRSkeleton rightHandSkeleton;
-
+    public GameObject airplane;
+    private int handHeartGestureCount = 0; // 손하트 제스처 호출 카운트
+    private const int Threshold = 20; // 특정 동작을 실행하기 위한 호출 횟수 기준
+    
     void Update()
     {
         if (leftHandSkeleton != null && rightHandSkeleton != null)
@@ -36,7 +40,6 @@ public class HandHeartDetector : MonoBehaviour
                 return bone.Transform.position;
             }
         }
-
         Debug.Log($"Count: {skeleton.Bones.Count}, Zero");
         return Vector3.zero;
     }
@@ -45,10 +48,44 @@ public class HandHeartDetector : MonoBehaviour
     {
         return Vector3.Distance(pointA, pointB) <= threshold;
     }
+    
 
     private void OnHandHeartGesture()
     {
-        // 손하트 인식 시 수행할 동작
+        // 손하트 제스처 인식
         Debug.Log("Hand heart gesture detected!");
+        handHeartGestureCount++; // 호출 카운트 증가
+
+        // 호출 횟수가 Threshold에 도달했는지 확인
+        if (handHeartGestureCount >= Threshold)
+        {
+            PerformSpecialAction();
+            handHeartGestureCount = 0; // 카운트 초기화
+        }
+    }
+
+    private void PerformSpecialAction()
+    {
+        // 특정 동작 실행
+        Debug.Log("Special action performed after 10 hand heart gestures!");
+        Transform airplaneTransform = Instantiate(airplane, GetBonePosition(leftHandSkeleton, OVRSkeleton.BoneId.Hand_IndexTip), Quaternion.identity).transform;
+        
+        // 카메라의 앞 방향 계산
+        Vector3 forwardDirection = mainCamera.transform.forward;
+
+        // 이동 목표 위치 계산
+        Vector3 targetPosition = airplaneTransform.position + forwardDirection * moveDistance;
+
+        // DOTween을 사용하여 이동
+        airplaneTransform.DOMove(targetPosition, duration)
+            .SetEase(Ease.Linear)
+            .OnComplete(() => Debug.Log("Movement Complete"));
+    }
+    public Camera mainCamera;      // 카메라 참조
+    public float moveDistance = 10f; // 이동 거리
+    public float duration = 2f;    // 이동 시간
+    private void MoveForward()
+    {
+        
     }
 }
