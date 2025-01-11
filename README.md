@@ -2,7 +2,7 @@
 공간에 대한 새로운 관점과 발전된 시각을 모색하는 XR 해커톤에서 
 HMD와 새로운 하드웨어를 사용한 또다른 공간의 확장 가능성을 탐구했습니다.
 공간의 확장에서 하드웨어(Hardware)와 혼합현실(Mixed-Reality)에 집중해
-'혼합현실 기반 하드웨어 연계 보드게임'을 만들었습니다
+'혼합현실 기반 하드웨어 연계 보드게임 Jumangi-MR'을 만들었습니다
 
 ### 최우수상 수상
 ![image](https://github.com/user-attachments/assets/0ed16ff4-2395-481c-a86d-92b88eb27dc9)
