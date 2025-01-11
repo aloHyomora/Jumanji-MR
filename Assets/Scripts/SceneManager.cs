@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class SceneManager : MonoBehaviour
 {
     private Coroutine _loadingRoutine;
+    private GameObject gameBoard;
     public Transform cameraTransform;
+    public PathMoveExample airplane;
     void Start()
     {
+        gameBoard = GameObject.Find("GameBoard");
         /*if (_loadingRoutine == null)
         {
             _loadingRoutine = StartCoroutine(TestSceneManageRoutine());
@@ -58,17 +61,23 @@ public class SceneManager : MonoBehaviour
     IEnumerator SceneManageRoutine(int i)
     {
         Debug.Log($"SceneManager.LoadScene({i})");
+
+        airplane.pathMoveDotween(i);
+        //VFX 일으키기
         yield return new WaitForSeconds(4f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(i);
 
+        gameBoard.SetActive(false);
         yield return new WaitForSeconds(15f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(5);
+        gameBoard.SetActive(true);
 
     }
 
     private void SceneForIsland()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(3);
+        gameBoard.SetActive(false);
     }
 
     private void SetPlayerPosition()

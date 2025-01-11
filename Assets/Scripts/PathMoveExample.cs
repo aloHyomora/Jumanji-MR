@@ -8,15 +8,15 @@ public class PathMoveExample : MonoBehaviour
     public Transform[] points; // points[0] -> 1번, points[1] -> 2번, ... points[7] -> 8번
 
     [Header("테스트용 (1~8 사이)")]
-    public int startIndex = 3; // 시작점 (1-based)
+    public int startIndex = 0; // 시작점 (1-based)
     public int endIndex = 1; // 끝점 (1-based)
 
     // DOTween 설정
-    public float duration = 5f;         // 전체 경로 이동 시간
+    public float duration = 3f;         // 전체 경로 이동 시간
     public PathType pathType = PathType.CatmullRom;
     public Ease easeType = Ease.Linear;
 
-    private void Start()
+    /*private void Start()
     {
 
         Vector3[] pathPositions = BuildCyclicPath(points, startIndex, endIndex);
@@ -25,6 +25,19 @@ public class PathMoveExample : MonoBehaviour
                  .SetEase(easeType)
                  .SetOptions(false) // true면 닫힌 곡선(Loop), 여기서는 false로
                  .SetLookAt(0.01f); // 이동 방향을 바라보도록 회전 (원하는 경우)
+    }*/
+
+
+    public void pathMoveDotween(int endIndex)
+    {
+        Vector3[] pathPositions = BuildCyclicPath(points, startIndex, endIndex);
+
+        transform.DOPath(pathPositions, duration, pathType)
+                 .SetEase(easeType)
+                 .SetOptions(false) // true면 닫힌 곡선(Loop), 여기서는 false로
+                 .SetLookAt(0.01f); // 이동 방향을 바라보도록 회전 (원하는 경우)
+
+        startIndex = endIndex;
     }
 
     /// <summary>
