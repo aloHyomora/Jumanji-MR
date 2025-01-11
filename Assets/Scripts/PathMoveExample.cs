@@ -7,9 +7,9 @@ public class PathMoveExample : MonoBehaviour
 {
     public Transform[] points; // points[0] -> 1번, points[1] -> 2번, ... points[7] -> 8번
 
-    [Header("테스트용 (1~8 사이)")]
-    public int startIndex = 0; // 시작점 (1-based)
-    public int endIndex = 1; // 끝점 (1-based)
+    //[Header("테스트용 (1~8 사이)")]
+    public int startIndex; // 시작점 (1-based)
+    public int endIndex; // 끝점 (1-based)
 
     // DOTween 설정
     public float duration = 3f;         // 전체 경로 이동 시간

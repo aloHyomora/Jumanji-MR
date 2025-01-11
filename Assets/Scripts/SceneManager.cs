@@ -42,16 +42,29 @@ public class SceneManager : MonoBehaviour
         switch (index)
         {
             case 2:
+                airplane.pathMoveDotween(2);
                 _loadingRoutine = StartCoroutine(SceneManageRoutine(1));
                 break;
+            case 3:
+                airplane.pathMoveDotween(3);
+                break;
             case 4:
+                airplane.pathMoveDotween(4);
                 _loadingRoutine = StartCoroutine(SceneManageRoutine(2));
                 break;
             case 5:
+                airplane.pathMoveDotween(5);
                 SceneForIsland();
                 break;
             case 6:
+                airplane.pathMoveDotween(6);
                 _loadingRoutine = StartCoroutine(SceneManageRoutine(4));
+                break;
+            case 7:
+                airplane.pathMoveDotween(7);
+                break;
+            case 8:
+                airplane.pathMoveDotween(8);
                 break;
             default:
                 break;
@@ -62,7 +75,7 @@ public class SceneManager : MonoBehaviour
     {
         Debug.Log($"SceneManager.LoadScene({i})");
 
-        airplane.pathMoveDotween(i);
+        //airplane.pathMoveDotween(i);
         //VFX 일으키기
         yield return new WaitForSeconds(4f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(i);
