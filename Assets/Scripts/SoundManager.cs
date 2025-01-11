@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,41 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.playOnAwake = false;        
     }
+
+
+    public void PlatMusic(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                PlayAlaskaSound();
+                break;
+            case 1:
+                PlayStartSound();
+                break;
+            case 2:
+                PlayPairsSound();
+                break;
+            case 3:
+                PlayStartSound();
+                break;
+            case 4:
+                PlayCairoSound();
+                break;
+            case 5:
+                PlayStartSound();
+                break;
+            case 6:
+                PlayNewyorkSound();
+                break;
+            case 7:
+                PlayStartSound();
+                break;
+            default:
+                break;
+        }
+    }
+
 
     public void PlayAlaskaSound()
     {

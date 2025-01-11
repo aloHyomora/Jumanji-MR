@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class PathMoveExample : MonoBehaviour
 {
+    public SoundManager soundManager;
     public Transform[] points;    // points[0] -> 1¹ø, points[1] -> 2¹ø, ... points[7] -> 8¹ø
     public GameObject[] vfxs;
 
@@ -95,7 +96,7 @@ public class PathMoveExample : MonoBehaviour
         DOVirtual.DelayedCall(3f, () =>
         {
             vfxs[endIndex - 2].SetActive(true);
-            
+            soundManager.PlatMusic(endIndex - 2);
         });
         DOVirtual.DelayedCall(8f, () =>
         {
