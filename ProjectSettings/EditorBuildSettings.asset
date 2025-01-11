@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: 4505bb0200b07db4586d9a44e8699f99
   - enabled: 1
     path: Assets/Scenes/Build Map/IslandQuest.unity
-    guid: ee8c402917e7db241b3956fbf0ad0b28
+    guid: 1b440e3b7df2a66439d336f2ea887c5d
   - enabled: 1
     path: Assets/Scenes/Build Map/CairoQuest.unity
     guid: 0f31ac8778ee2fe4fa246585f0c4901e
